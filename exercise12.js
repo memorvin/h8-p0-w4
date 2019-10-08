@@ -19,7 +19,7 @@ function countProfit(shoppers) {
     var bajuShoppers = [];
     var sweaterShoppers = [];
     
-    for(var i = 0; i < shoppers.length; i++){
+    for(var i = 0; i < shoppers.length; i++) {
       if(shoppers[i]['product'] === 'Sepatu Stacattu' && sepatuStock >= shoppers[i]['amount']) {
         sepatuShoppers.push(shoppers[i]['name']);
         sepatuStock -= shoppers[i]['amount'];
