@@ -1,34 +1,28 @@
 //Logic Challenge: Highest Score
 
-function highestScore (students) {
-
+function highestScore(students) {
   var result = {};
-
-  if (students.length === 0) {
-    return result;
-  } else {
-    var classArr = [];
-
-    for (var i = 0; i < students.length; i++) {
-      if (classArr.indexOf(students[i].class) === -1) {
-        classArr.push(students[i].class);
-      }
+  var classArr = [];
+//make an array consists of class names
+  for (var i = 0; i < students.length; i++) {
+    if (classArr.indexOf(students[i]['class']) === -1) {
+      classArr.push(students[i]['class']);
     }
-
-    for (var i = 0; i < classArr.length; i++) {
-    var tempResult = {};
-    var highScore = 0;
-      for (var j = 0; j < students.length; j++) {
-        if (classArr[i] === students[j].class && students[j].score > highScore) {
-          tempResult.name = students[j].name;
-          tempResult.score = students[j].score;
-          highScore = students[j].score;
-        }
-      } 
-      result[classArr[i]] = tempResult;
-    }
-    return result;
   }
+//find students with highest score from each class, and insert the data into object
+  for (var i = 0; i < classArr.length; i++) {
+  var tempResult = {};
+  var highScore = 0;
+    for (var j = 0; j < students.length; j++) {
+      if (classArr[i] === students[j]['class'] && students[j]['score'] > highScore) {
+        tempResult['name'] = students[j]['name'];
+        tempResult['score'] = students[j]['score'];
+        highScore = students[j]['score'];
+      }
+    } 
+    result[classArr[i]] = tempResult;
+  }
+  return result;
 }
 
 // TEST CASE
