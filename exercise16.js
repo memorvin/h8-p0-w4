@@ -12,9 +12,9 @@ function graduates (students) {
   for (var key in result) {
     for (var i = 0; i < students.length; i++) {
       var objResult = {};
-      if (students[i].score > 75 && key === students[i].class) {
-        objResult.name = students[i].name;
-        objResult.score = students[i].score;
+      if (students[i]['score'] > 75 && key === students[i]['class']) {
+        objResult['name'] = students[i]['name'];
+        objResult['score'] = students[i]['score'];
         result[key].push(objResult); 
       }
     }
