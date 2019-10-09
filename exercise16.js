@@ -2,29 +2,24 @@
 
 function graduates (students) {
   var result = {};
-//return empty object if there's no input
-  if (students.length === 0) {
-    return result;
-  } else {
 //create array inside result object for each class
-    for (var i = 0; i < students.length; i++) {
-      if (result.hasOwnProperty(students[i]['class']) === false) {
-        result[students[i]['class']] = [];
-      }
+  for (var i = 0; i < students.length; i++) {
+    if (result.hasOwnProperty(students[i]['class']) === false) {
+      result[students[i]['class']] = [];
     }
-//create object for each graduates and push them to associated array of class inside result object
-    for (var key in result) {
-      for (var i = 0; i < students.length; i++) {
-        var objResult = {};
-        if (students[i].score > 75 && key === students[i].class) {
-          objResult.name = students[i].name;
-          objResult.score = students[i].score;
-          result[key].push(objResult); 
-        }
-      }
-    }
-    return result;
   }
+//create object for each graduates and push them to associated array of class inside result object
+  for (var key in result) {
+    for (var i = 0; i < students.length; i++) {
+      var objResult = {};
+      if (students[i].score > 75 && key === students[i].class) {
+        objResult.name = students[i].name;
+        objResult.score = students[i].score;
+        result[key].push(objResult); 
+      }
+    }
+  }
+  return result;
 }
 
 console.log(graduates([
